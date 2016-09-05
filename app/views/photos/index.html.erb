@@ -1,0 +1,13 @@
+<% unless @photos.blank? %>
+  <%= will_paginate %>
+  <ul class="thumbnails">
+    <% @photos.each do |photo| %>
+      <li class="span3">
+        <%= link_to image_tag( photo.url_small ), '#', class: "thumbnail", data: { imgpath: photo.url_large } %>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate %>
+<% end %>
+
+<%= render 'photo_modal' %>
